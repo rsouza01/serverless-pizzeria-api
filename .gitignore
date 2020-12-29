@@ -1,0 +1,19 @@
+# package directories
+node_modules
+jspm_packages
+local
+
+# Lint reports
+coverage
+.nyc_output
+
+# Serverless directories
+.serverless
+
+.webpack
+build
+dist
+
+config/*.json
+!config/deploy_config_sample.json
+node_modules
