@@ -2,10 +2,10 @@
   "name": "serverless-pizzeria-api",
   "version": "1.0.0",
   "description": "Project for the book \"Serverless Applications with Node.js - Using AWS Lambda and Claudia.js\"",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api:create": "claudia create --region eu-central-1 --api-module api",
+    "api:create": "claudia create --region eu-central-1 --api-module src/api",
     "api:update": "claudia update"
   },
   "repository": {
