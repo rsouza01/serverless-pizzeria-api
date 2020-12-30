@@ -12,17 +12,21 @@ module.exports = function createOrder(request) {
         throw new Error('To order pizza please provide pizza type and address where pizza should be delivered')
     }
 
+    const requestDeliveryBody = {
+        pickupTime: '15.34pm',
+        pickupAddress: 'Aunt Maria Pizzeria',
+        deliveryAddress: request.address,
+        webhookUrl: `${process.env.BASE_URL}/delivery`,
+    }
+
+    console.log(`>>> createOrder.requestDeliveryBody: ${JSON.stringify(requestDeliveryBody, null, 2)}`);
+
     return rp.post(process.env.DELIVERY_API_URL, {
         headers: {
             "Authorization": "aunt-marias-pizzeria-1234567890",
             "Content-type": "application/json"
         },
-        body: JSON.stringify({
-            pickupTime: '15.34pm',
-            pickupAddress: 'Aunt Maria Pizzeria',
-            deliveryAddress: request.address,
-            webhookUrl: `${process.env.BASE_URL}/delivery`,
-        })
+        body: JSON.stringify(requestDeliveryBody)
     })
         .then(rawResponse => JSON.parse(rawResponse.body))
         .then(response => {
@@ -37,7 +41,7 @@ module.exports = function createOrder(request) {
             }).promise()
         })
         .then(res => {
-            console.log('Order is saved!', res)
+            console.log('Order is saved!', res, requestDeliveryBody)
             return res
         })
         .catch(saveError => {
