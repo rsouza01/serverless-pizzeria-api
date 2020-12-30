@@ -46,5 +46,14 @@ echo '*****************************************************************'
 curl -i -H "Content-Type: application/json" \
 $BASE_URL/orders/e5304e07-a93c-46a3-9505-8934b6f8a0ef
 
+
+echo
+echo '*****************************************************************'
+echo 'DELIVERY'
+echo '*****************************************************************'
+curl -i -H "Content-Type: application/json" -X POST \
+  -d '{"deliveryId":"062c82ca-15e3-4ebb-a60b-459b88cf9135","status":"IN-PROGRESS"}' \
+  $BASE_URL/delivery
+
 echo
 

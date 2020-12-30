@@ -1,6 +1,5 @@
 'use strict'
 
-const { v4: uuidv4 } = require('uuid');
 const AWS = require('aws-sdk')
 const rp = require('minimal-request-promise')
 
@@ -18,8 +17,6 @@ module.exports = function createOrder(request) {
         deliveryAddress: request.address,
         webhookUrl: `${process.env.BASE_URL}/delivery`,
     }
-
-    console.log(`>>> createOrder.requestDeliveryBody: ${JSON.stringify(requestDeliveryBody, null, 2)}`);
 
     return rp.post(process.env.DELIVERY_API_URL, {
         headers: {
