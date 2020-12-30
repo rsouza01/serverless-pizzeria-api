@@ -5,6 +5,7 @@
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:smoke": "./scripts/smoke-test.sh",
     "api:create": "claudia create --region eu-central-1 --api-module src/api",
     "api:update": "claudia update"
   },
