@@ -1,12 +1,16 @@
 'use strict'
 
-const AWS = require('aws-sdk')
+const AWSXRay = require('aws-xray-sdk-core')
+const AWS = AWSXRay.captureAWS(require('aws-sdk'))
+
 const rp = require('minimal-request-promise')
 
 const docClient = new AWS.DynamoDB.DocumentClient()
 const tableName = `${process.env.APP_NAME}-orders-${process.env.NODE_ENV}`
 
 module.exports = function createOrder(request) {
+    console.log('Save an order =>', request);
+    
     if (!request || !request.pizza || !request.address) {
         throw new Error('To order pizza please provide pizza type and address where pizza should be delivered')
     }
