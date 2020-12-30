@@ -5,7 +5,6 @@ const { v4: uuidv4 } = require('uuid');
 
 const tableName = `${process.env.APP_NAME}-orders-${process.env.NODE_ENV}`
 
-
 function createOrder(request) {
     if (!request || !request.pizza || !request.address) {
         throw new Error('To order pizza please provide pizza type and address where pizza should be delivered')

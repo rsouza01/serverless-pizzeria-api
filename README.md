@@ -37,19 +37,9 @@ npm install
 npm run test
 ```
 
-### cURL Requests
-
-curl -i -H "Content-Type: application/json" -X POST \
-  -d '{"pizzaId":1,"address":"221B Baker Street"}' \
-  https://j0jx7d4u8b.execute-api.eu-central-1.amazonaws.com/latest/orders
-
-curl -i -H "Content-Type: application/json" -X PUT \
-  -d '{"pizzaId":2}' \
-  https://j0jx7d4u8b.execute-api.eu-central-1.amazonaws.com/latest/orders/42
-
-
-curl -i -H "Content-Type: application/json" -X DELETE \
-  https://j0jx7d4u8b.execute-api.eu-central-1.amazonaws.com/latest/orders/42
+```sh
+npm run test:smoke
+```
 
 ## Author
 
