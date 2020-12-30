@@ -5,9 +5,10 @@
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "clear && npm run api:update; npm run test:smoke",
     "test:smoke": "./scripts/smoke-test.sh",
-    "api:create": "claudia create --region eu-central-1 --api-module src/api",
-    "api:update": "claudia update"
+    "api:create": "claudia create --region eu-central-1 --api-module src/api --set-env-from-json .env.json",
+    "api:update": "claudia update --set-env-from-json .env.json"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.819.0",
-    "claudia-api-builder": "^4.1.2"
+    "claudia-api-builder": "^4.1.2",
+    "uuid": "^8.3.2"
   }
 }

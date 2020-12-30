@@ -12,7 +12,7 @@ echo '*****************************************************************'
 echo 'POST'
 echo '*****************************************************************'
 curl -i -H "Content-Type: application/json" -X POST \
-  -d '{"pizzaId":1,"address":"221B Baker Street"}' \
+  -d '{"pizza":1,"address":"221B Baker Street"}' \
   $BASE_URL/orders
 
 echo
@@ -20,7 +20,7 @@ echo '*****************************************************************'
 echo 'PUT'
 echo '*****************************************************************'
 curl -i -H "Content-Type: application/json" -X PUT \
-  -d '{"pizzaId":2}' \
+  -d '{"pizza":2}' \
   $BASE_URL/orders/42
 
 echo
