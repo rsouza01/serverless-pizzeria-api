@@ -12,7 +12,7 @@ echo '*****************************************************************'
 echo 'POST'
 echo '*****************************************************************'
 curl -i -H "Content-Type: application/json" -X POST \
-  -d '{"pizza":1,"address":"221B Baker Street"}' \
+  -d '{"pizza":1,"address":"Webhook, 123"}' \
   $BASE_URL/orders
 
 
