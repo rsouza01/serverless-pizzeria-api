@@ -19,7 +19,14 @@ AWS_DEFAULT_REGION='eu-central-1'
 #     --query UserPoolClient.ClientId \
 #     --output text
 
+# PoolId: eu-central-1_iW3b75tTy
+# ClientId: 3ti755qg5vglksu816eo77bigv
 
+aws cognito-identity create-identity-pool \
+    --identity-pool-name Pizzeria \
+    --allow-unauthenticated-identities \
+    --cognito-identity-providers ProviderName=cognito-idp.eu-central-1.amazonaws.com/eu-central-1_iW3b75tTy,ClientId=3ti755qg5vglksu816eo77bigv,ServerSideTokenCheck=false \
+    --query IdentityPoolId \
+    --output text
 
-PoolId: eu-central-1_iW3b75tTy
-ClientId: 3ti755qg5vglksu816eo77bigv
+# Identity pool Id: eu-central-1:3b925a0b-7f41-47bf-afcd-1e1e334a410e
