@@ -22,11 +22,23 @@ AWS_DEFAULT_REGION='eu-central-1'
 # PoolId: eu-central-1_iW3b75tTy
 # ClientId: 3ti755qg5vglksu816eo77bigv
 
-aws cognito-identity create-identity-pool \
-    --identity-pool-name Pizzeria \
-    --allow-unauthenticated-identities \
-    --cognito-identity-providers ProviderName=cognito-idp.eu-central-1.amazonaws.com/eu-central-1_iW3b75tTy,ClientId=3ti755qg5vglksu816eo77bigv,ServerSideTokenCheck=false \
-    --query IdentityPoolId \
-    --output text
+# aws cognito-identity create-identity-pool \
+#     --identity-pool-name Pizzeria \
+#     --allow-unauthenticated-identities \
+#     --cognito-identity-providers ProviderName=cognito-idp.eu-central-1.amazonaws.com/eu-central-1_iW3b75tTy,ClientId=3ti755qg5vglksu816eo77bigv,ServerSideTokenCheck=false \
+#     --query IdentityPoolId \
+#     --output text
 
 # Identity pool Id: eu-central-1:3b925a0b-7f41-47bf-afcd-1e1e334a410e
+
+
+
+# aws iam create-role --role-name $APP_NAME-Role-auth --assume-role-policy-document file://AUTH-Role-Trust-Policy.json
+#"arn:aws:iam::491406350155:role/SLS-PIZZA-Role-auth",
+
+# aws iam create-role --role-name $APP_NAME-Role-unauth --assume-role-policy-document file://UNAUTH-Role-Trust-Policy.json
+# arn:aws:iam::491406350155:role/SLS-PIZZA-Role-unauth
+
+# aws cognito-identity set-identity-pool-roles \
+# --identity-pool-id eu-central-1:3b925a0b-7f41-47bf-afcd-1e1e334a410e \
+# --roles authenticated=arn:aws:iam::491406350155:role/SLS-PIZZA-Role-auth,unauthenticated=arn:aws:iam::491406350155:role/SLS-PIZZA-Role-unauth
